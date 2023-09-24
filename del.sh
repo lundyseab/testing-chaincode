@@ -1,6 +1,6 @@
 rm -R ./artifact
 rm -R ./crypto-config
-rm -R ./ledger
+rm -R ./ledger1
 rm -R ./ledger2
 rm -R ./basic.tar.gz
 rm -R ./log.txt
