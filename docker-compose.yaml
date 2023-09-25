@@ -1,7 +1,10 @@
 version: "3.9"
 
+# networks:
+#   my_chain:
 networks:
-  my-chain:
+  my_chain:
+    external: true
 
 services:
 
@@ -31,7 +34,7 @@ services:
       - 7050:7050
       - 8443:8443
     networks:
-      - my-chain
+      - my_chain
     volumes:
       - ./artifact/genesis.block:/var/hyperledger/orderer/genesis.block
       - ./crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp:/var/hyperledger/orderer/msp
@@ -48,7 +51,7 @@ services:
     ports:
       - 5984:5984
     networks:
-      - my-chain
+      - my_chain
 
   couchdb1:
     container_name: couchdb1
@@ -59,7 +62,7 @@ services:
     ports:
       - 6984:5984
     networks:
-      - my-chain
+      - my_chain
 
   # up peer 1
   peer0.org1.example.com:
@@ -72,7 +75,7 @@ services:
       - ORDERER_GENERAL_LOGLEVEL=DEBUG
       - CORE_PEER_LOCALMSPID=Org1
 
-      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=my_chain
 
       - CORE_PEER_ID=peer0.org1.example.com
       - CORE_PEER_ADDRESS=peer0.org1.example.com:7051
@@ -113,7 +116,8 @@ services:
       - ./crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt:/etc/hyperledger/crypto/peer/tls/ca.crt
       - ./crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp:/etc/hyperledger/crypto/peer/msp
     networks:
-      - my-chain
+      - my_chain
+
 
   peer0.org2.example.com:
     container_name: peer0.org2.example.com
@@ -124,9 +128,8 @@ services:
       - FABRIC_LOGGING_SPEC=DEBUG
       - ORDERER_GENERAL_LOGLEVEL=debug
       - CORE_PEER_LOCALMSPID=Org2
-
-      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=artifacts_test
-
+      # /////////////////////////////////////////////
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=my_chain
       - CORE_PEER_ID=peer0.org2.example.com
       - CORE_PEER_ADDRESS=peer0.org2.example.com:7053
       - CORE_PEER_LISTENADDRESS=0.0.0.0:7053
@@ -167,4 +170,5 @@ services:
       - ./crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt:/etc/hyperledger/crypto/peer/tls/ca.crt
       - ./crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp:/etc/hyperledger/crypto/peer/msp
     networks:
-      - my-chain
+      - my_chain
+

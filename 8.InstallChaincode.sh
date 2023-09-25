@@ -129,7 +129,6 @@ queryCommitted() {
 
 chaincodeInvokeInit(){
     setGlobalsForPeer0Org1
-
     peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile ${ORDERER_CA} \
     -C ${CHANNEL_NAME} \
     -n ${CC_NAME} \
@@ -147,16 +146,33 @@ getAllAssets(){
     --peerAddresses localhost:7053 --tlsRootCertFiles $CORE_PEER_TLS_ROOTCERT_FILE2 \
     -c '{"Args":["GetAllAssets"]}'
 }
+# //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-# presetup
-# packageChaincode
-# installChaincode
+checkIsGoExist() {
+    echo "Checking Go...."
+    go version > /dev/null 2>&1
+    if [ $? -eq 0 ]; then
+        echo "You Good to go xD."
+    else
+        echo "Install GO first, please."
+        exit 1
+    fi
+}
+
+# check if go exist
+checkIsGoExist
+
+presetup
+packageChaincode
+installChaincode
 queryInstalled
 
-# approveForMyOrg1
-# approveForMyOrg2
-# checkCommitReadyness
-# commitChaincodeDefination
-# queryCommitted
+approveForMyOrg1
+approveForMyOrg2
+checkCommitReadyness
+commitChaincodeDefination
+queryCommitted
 chaincodeInvokeInit
-# getAllAssets
+
+sleep 2s
+getAllAssets
