@@ -23,7 +23,7 @@ This is Blockchain project show how to show step by step to setup a Blockchain n
 ```
 
 ### Noted 🚨🚧⚠️
-- if you can the script run:
+- if you cannot run the script, you can run command:
 
 ```bash
 chmod +x permission.sh
