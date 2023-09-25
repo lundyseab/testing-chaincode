@@ -1,13 +1,42 @@
-blockchain_mini-project
-To run this project, you must have configured Bin to fabric binary tool
-And also have Go installed in your system
+# Blockchain Mini-Project
 
-And then just run:
-./setUpNetworkAndInstallChaincode.sh 
+This is Blockchain project show how to show step by step to setup a Blockchain network in Docker compose.
 
-After that everything will setup include chaincode.
+## Requirements
+- You must have 
+<code>Bin</code> configuration path before run the script below.
+- Last of all make sure that you have <code>Go</code> installed in your machine.
 
-You can also update chaincode by run:
+## Get Started!!!
+- First of all, you can run this script below to setup network including chaincode installed.
+
+ ```bash
+./setUpNetworkAndInstallChaincode.sh
+```
+
+- After that everything is done ✅.
+
+### You can also update chaincode following command below:
+
+```bash
 ./updateChaincode.sh
+```
 
-Thank you!
+### Noted 🚨🚧⚠️
+- if you can the script run:
+
+```bash
+chmod +x permission.sh
+```
+And
+
+```bash
+./permission.sh
+```
+- if you want to remove everything you setup so far, run:
+
+```bash
+./del.sh
+```
+### Thank you!
+
