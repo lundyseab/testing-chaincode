@@ -16,12 +16,6 @@ This is Blockchain project show how to show step by step to setup a Blockchain n
 
 - After that everything is done ✅.
 
-### You can also update chaincode following command below:
-
-```bash
-./updateChaincode.sh
-```
-
 ### Noted 🚨🚧⚠️
 - if you cannot run the script, you can run command:
 
