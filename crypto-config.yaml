@@ -9,6 +9,7 @@ OrdererOrgs:
         SANS:
           - "localhost"
           - "127.0.0.1"
+          - "172.104.49.192"
 
 PeerOrgs:
   - Name: Org1
@@ -20,6 +21,7 @@ PeerOrgs:
       SANS:
         - "localhost"
         - "127.0.0.1"
+        - "172.104.49.192"
 
     Users:
       Count: 1
@@ -32,5 +34,6 @@ PeerOrgs:
       SANS:
           - "localhost"
           - "127.0.0.1"
+          - "172.104.49.192"
     Users:
       Count: 1
