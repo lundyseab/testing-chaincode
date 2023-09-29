@@ -160,19 +160,19 @@ checkIsGoExist() {
 }
 
 # check if go exist
-checkIsGoExist
+# checkIsGoExist
 
-presetup
-packageChaincode
-installChaincode
-queryInstalled
+# presetup
+# packageChaincode
+# installChaincode
+# queryInstalled
 
-approveForMyOrg1
-approveForMyOrg2
-checkCommitReadyness
-commitChaincodeDefination
-queryCommitted
-chaincodeInvokeInit
+# approveForMyOrg1
+# approveForMyOrg2
+# checkCommitReadyness
+# commitChaincodeDefination
+# queryCommitted
+# chaincodeInvokeInit
 
 sleep 2s
 getAllAssets

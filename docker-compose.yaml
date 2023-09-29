@@ -24,7 +24,8 @@ services:
       - ORDERER_GENERAL_TLS_PRIVATEKEY=/var/hyperledger/orderer/tls/server.key
       - ORDERER_GENERAL_TLS_CERTIFICATE=/var/hyperledger/orderer/tls/server.crt
       - ORDERER_GENERAL_TLS_ROOTCAS=/var/hyperledger/orderer/tls/ca.crt
-      - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443
+      - ORDERER_OPERATIONS_LISTENADDRESS=orderer.example.com:8443
+      - ORDERER_METRICS_PROVIDER=prometheus
       - ORDERER_GENERAL_LISTENPORT=7050
       - ORDERER_FILELEDGER_LOCATION=/var/hyperledger/production
 
@@ -86,6 +87,7 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org1.example.com:7051
 
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9445
+      - CORE_METRICS_PROVIDER=prometheus
       - CORE_PEER_FILESYSTEMPATH=/var/hyperledger/production
       # database
       - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
@@ -138,6 +140,7 @@ services:
       - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org2.example.com:7053
 
       - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9446
+      - CORE_METRICS_PROVIDER=prometheus
       - CORE_PEER_FILESYSTEMPATH=/var/hyperledger/production
       - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org2.example.com:7053
 
